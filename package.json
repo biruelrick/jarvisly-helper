@@ -1,12 +1,15 @@
 {
   "name": "jarvisly-helper",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Javascript library with basic helper methods for Javascript Applications",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": "git@github.com:biruelrick/jarvisly-helper.git",
   "author": "Ricardo Biruel",
   "license": "MIT",
+  "scripts": {
+    "deploy": "tsc && git add . && git commit -m '*** DEPLOY ***' && git push && npm publish"
+  },
   "dependencies": {
     "@types/node": "^17.0.17",
     "capitalize-pt-br": "^0.6.0"
