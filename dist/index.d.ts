@@ -13,4 +13,3 @@ declare const index: {
     generaToken: () => string;
 };
 export default index;
-//# sourceMappingURL=index.d.ts.map
