@@ -26,7 +26,7 @@ $ npm install jarvisly-helper --save
 You can import all methods:
 
 ```bash
-$ import jh from 'jarvisly-helper'
+$ import index from 'jarvisly-helper'
 ```
 
 ... or can import each method as like do you wish:
@@ -51,7 +51,7 @@ const obj = {
   age: '42',
   contact: contact
 }
-const newObject = jh.clone(obj);  // <- new object without referece to 'contact' object   
+const newObject = index.clone(obj);  // <- new object without referece to 'contact' object   
 ```
 
 ### returnOnlyNumbers
@@ -61,8 +61,8 @@ const newObject = jh.clone(obj);  // <- new object without referece to 'contact'
 Returns only numbers from the string argument
 
 ```js
-console.log(jh.returnOnlyNumbers('abc123/4-5')); //12345
-console.log(jh.returnOnlyNumbers('02.934.311/0001-53'));  // '02934311000153'
+console.log(index.returnOnlyNumbers('abc123/4-5')); //12345
+console.log(index.returnOnlyNumbers('02.934.311/0001-53'));  // '02934311000153'
 ```
 
 ## Author

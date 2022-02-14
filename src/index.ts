@@ -12,7 +12,7 @@ export const generaToken = () => randomUUID();
 // isObject()
 // check if the obj is really a valid javascript object (POJO)
 // ************************************************************************** //
-export const isObject = obj => {
+export const isObject = (obj: any): boolean => {
   return typeof obj === 'object' && !Array.isArray(obj) && obj !== null;
 };
 
@@ -20,19 +20,19 @@ export const isObject = obj => {
 // returnOnlyNumbers()
 // words capitalize
 // ************************************************************************** //
-export const capitalize = (str) => capitalizePtBr(str);
+export const capitalize = (str: string): string => capitalizePtBr(str);
 
 // ************************************************************************** //
 // returnOnlyNumbers()
 // return only numbers from a string
 // ************************************************************************** //
-export const returnOnlyNumbers = str => str.replace(/\D/g, '');
+export const returnOnlyNumbers = (str: string): string => str.replace(/\D/g, '');
 
 // ************************************************************************** //
 // clone()
 // clone object broken all deep references
 // ************************************************************************** //
-export const clone = obj => {
+export const clone = (obj: Object): Object => {
   return JSON.parse(JSON.stringify(obj));
 };
 
