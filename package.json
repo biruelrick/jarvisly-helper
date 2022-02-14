@@ -1,9 +1,13 @@
 {
   "name": "jarvisly-helper",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Javascript Library Basic Helper for Javascript Applications",
   "main": "index.js",
   "repository": "git@github.com:biruelrick/jarvisly-helper.git",
   "author": "Ricardo Biruel",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "capitalize-pt-br": "^0.6.0",
+    "crypto": "^1.0.1"
+  }
 }
