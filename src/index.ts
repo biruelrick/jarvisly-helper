@@ -91,6 +91,7 @@ const index = {
   returnOnlyNumbers: returnOnlyNumbers,
   capitalize: capitalize,
   generaToken: generaToken,
+  returnPhoneMask: returnPhoneMask
 };
 
 export default index;
