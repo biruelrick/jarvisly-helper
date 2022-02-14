@@ -26,7 +26,7 @@ $ npm install jarvisly-helper --save
 You can import all methods:
 
 ```bash
-$ import index from 'jarvisly-helper'
+$ import jh from 'jarvisly-helper'
 ```
 
 ... or can import each method as like do you wish:
@@ -39,7 +39,7 @@ $ import { clone, returnOnlyNumbers } from 'jarvisly-helper'
 
 ### clone
 
-`clone(Object)`
+`clone(obj: object): object`
 
 this function will brake all object's reference in all levels remember: the Object.assign and {...Object} will brake the
 references only in first object level
@@ -51,18 +51,59 @@ const obj = {
   age: '42',
   contact: contact
 }
-const newObject = index.clone(obj);  // <- new object without referece to 'contact' object   
+const newObject = jh.clone(obj);  // <- new object without referece to 'contact' object   
 ```
 
 ### returnOnlyNumbers
 
-`returnOnlyNumbers(String)`
+`returnOnlyNumbers(str: string): string`
 
-Returns only numbers from the string argument
+Returns only numbers from the `str` argument
 
 ```js
-console.log(index.returnOnlyNumbers('abc123/4-5')); //12345
-console.log(index.returnOnlyNumbers('02.934.311/0001-53'));  // '02934311000153'
+console.log(jh.returnOnlyNumbers('abc123/4-5')); // '12345'
+console.log(jh.returnOnlyNumbers('02.934.311/0001-53'));  // '02934311000153'
+```
+
+### generateToken
+
+`generateToken(): string`
+
+Generate a randon token using the node crypto core package
+
+```js
+console.log(jh.generateToken()); // '95fc27403-b659-00f9-a526-a949cc9db68k'
+```
+
+### isObject
+
+`isObject(obj: any): boolean`
+
+Check if the `obj` is really a valid javascript object (POJO)
+
+```js
+console.log(jh.isObject('Brazil')); // false
+console.log(jh.isObject({ country: 'Brazil' })); // true
+```
+
+### capitalize
+
+`capitalize(str: any): string`
+
+return the `str` with words capitalize ignoring the prepositions
+
+```js
+console.log(jh.isObject('RENAN DI CARLO')); // Renan di Carlo
+```
+
+### ROOT_PATH
+
+`ROOT_PATH: string`
+
+Constant with the NodeJS project root path
+
+```js
+console.log(jh.ROOT_PATH); // /Users/biruel/Dropbox/dev/jarvisly-v2/code-backend
 ```
 
 ## Author

@@ -3,10 +3,19 @@ import path from 'path';
 import capitalizePtBr from 'capitalize-pt-br';
 
 // ************************************************************************** //
-// generaToken()
-// generate a randon token using the crypto package
+// ROOTH_PATH
+// constant with the NodeJS project root path (ex: /Users/biruel/Dropbox/dev/jarvisly-v2/code-backend)
 // ************************************************************************** //
-export const generaToken = () => randomUUID();
+const mainFile = (require.main && path.dirname(require.main.filename)) || '.'; // get the main file (ex: app.js) path
+export const ROOT_PATH: string = path.join(mainFile, '..'); // Root Path to the main file
+
+// ************************************************************************** //
+// clone()
+// clone object broken all deep references
+// ************************************************************************** //
+export const clone = (obj: Object): Object => {
+  return JSON.parse(JSON.stringify(obj));
+};
 
 // ************************************************************************** //
 // isObject()
@@ -18,32 +27,21 @@ export const isObject = (obj: any): boolean => {
 
 // ************************************************************************** //
 // returnOnlyNumbers()
-// words capitalize
-// ************************************************************************** //
-export const capitalize = (str: string): string => capitalizePtBr(str);
-
-// ************************************************************************** //
-// returnOnlyNumbers()
 // return only numbers from a string
 // ************************************************************************** //
 export const returnOnlyNumbers = (str: string): string => str.replace(/\D/g, '');
 
 // ************************************************************************** //
-// clone()
-// clone object broken all deep references
+// returnOnlyNumbers()
+// return string with words capitalize ignoreing the prepositions
 // ************************************************************************** //
-export const clone = (obj: Object): Object => {
-  return JSON.parse(JSON.stringify(obj));
-};
+export const capitalize = (str: string): string => capitalizePtBr(str);
 
 // ************************************************************************** //
-// ROOTH_PATH
-// return the main path project (ex: /src)
+// generaToken()
+// generate a randon token using the node crypto core package
 // ************************************************************************** //
-// get the main file (ex: app.js) path
-const mainFile = (require.main && path.dirname(require.main.filename)) || '.';
-// Root Path to the main file
-export const ROOT_PATH = path.join(mainFile, '..');
+export const generaToken = () => randomUUID();
 
 // ========================================================================== //
 // api methods export
@@ -51,9 +49,9 @@ export const ROOT_PATH = path.join(mainFile, '..');
 const index = {
   ROOT_PATH: ROOT_PATH,
   clone: clone,
+  isObject: isObject,
   returnOnlyNumbers: returnOnlyNumbers,
   capitalize: capitalize,
-  isObject: isObject,
   generaToken: generaToken,
 };
 
