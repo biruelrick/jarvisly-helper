@@ -69,7 +69,7 @@ console.log(jh.returnOnlyNumbers('02.934.311/0001-53'));  // '02934311000153'
 
 `generateToken(): string`
 
-Generate a randon token using the node crypto core package
+Generate a random token using the node crypto core package
 
 ```js
 console.log(jh.generateToken()); // '95fc27403-b659-00f9-a526-a949cc9db68k'
@@ -104,6 +104,16 @@ Constant with the NodeJS project root path
 
 ```js
 console.log(jh.ROOT_PATH); // /Users/biruel/Dropbox/dev/jarvisly-v2/code-backend
+```
+
+### returnPhoneMask
+
+`returnPhoneMask(str: string, countryCode: string = 'br'): string`
+
+return the mask for phone number according the country and number of digits (without country digits)
+
+```js
+console.log(jh.returnPhoneMask('19982320000')); // (##) #.####-####
 ```
 
 ## Author

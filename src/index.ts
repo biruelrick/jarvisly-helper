@@ -39,9 +39,47 @@ export const capitalize = (str: string): string => capitalizePtBr(str);
 
 // ************************************************************************** //
 // generaToken()
-// generate a randon token using the node crypto core package
+// generate a random token using the node crypto core package
 // ************************************************************************** //
 export const generaToken = () => randomUUID();
+
+// ************************************************************************** //
+// returnPhoneMask()
+// Return the phone number mask according the contry and type of phone (defined by number length)
+// ************************************************************************** //
+export const returnPhoneMask = (str: string, countryCode: string = 'br'): string | undefined => {
+
+  if (!str) return;
+
+  if (countryCode === 'br') {
+
+    if (str.length === 11) {
+
+      if (str.substring(0, 1) === '0') { // 0800-PJMONEY
+
+        return '#### ## ####';
+
+      } else {
+
+        return '(##) #.####-####';
+
+      }
+
+    } else if (str.length === 10) {
+
+      return '(##) ####-####';
+
+    } else {
+
+      return str;
+
+    }
+
+  } else {
+
+    return str;
+  }
+};
 
 // ========================================================================== //
 // api methods export
@@ -56,3 +94,5 @@ const index = {
 };
 
 export default index;
+
+
