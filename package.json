@@ -1,6 +1,6 @@
 {
   "name": "jarvisly-helper",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Javascript library with basic helper methods for Javascript Applications",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
