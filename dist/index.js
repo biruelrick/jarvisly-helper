@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.returnPhoneMask = exports.generaToken = exports.capitalize = exports.returnOnlyNumbers = exports.isObject = exports.clone = exports.ROOT_PATH = void 0;
-const crypto_1 = require("crypto");
+exports.returnPhoneMask = exports.generateToken = exports.capitalize = exports.returnOnlyNumbers = exports.isObject = exports.clone = exports.ROOT_PATH = void 0;
+const uuid_1 = require("uuid");
 const path_1 = __importDefault(require("path"));
 const capitalize_pt_br_1 = __importDefault(require("capitalize-pt-br"));
 // ************************************************************************** //
@@ -45,8 +45,8 @@ exports.capitalize = capitalize;
 // generateToken()
 // generate a random token using the node crypto core package
 // ************************************************************************** //
-const generaToken = () => (0, crypto_1.randomUUID)();
-exports.generaToken = generaToken;
+const generateToken = () => (0, uuid_1.v4)();
+exports.generateToken = generateToken;
 // ************************************************************************** //
 // returnPhoneMask()
 // Return the phone number mask according the contry and type of phone (defined by number length)
@@ -84,7 +84,7 @@ const index = {
     isObject: exports.isObject,
     returnOnlyNumbers: exports.returnOnlyNumbers,
     capitalize: exports.capitalize,
-    generaToken: exports.generaToken,
+    generateToken: exports.generateToken,
     returnPhoneMask: exports.returnPhoneMask
 };
 exports.default = index;
