@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.returnPhoneMask = exports.generateToken = exports.capitalize = exports.returnOnlyNumbers = exports.isObject = exports.clone = exports.ROOT_PATH = void 0;
+exports.normalize = exports.returnPhoneMask = exports.generateToken = exports.capitalize = exports.returnOnlyNumbers = exports.isObject = exports.clone = exports.ROOT_PATH = void 0;
 const uuid_1 = require("uuid");
 const path_1 = __importDefault(require("path"));
 const capitalize_pt_br_1 = __importDefault(require("capitalize-pt-br"));
@@ -75,6 +75,25 @@ const returnPhoneMask = (str, countryCode = 'br') => {
     }
 };
 exports.returnPhoneMask = returnPhoneMask;
+// ************************************************************************** //
+// normalize()
+// Normalize the text removing all accents and diacritics
+// ************************************************************************** //
+const normalize = (str, type) => {
+    if (!str)
+        return;
+    str = str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    if (type === 'lower') {
+        return str.toLowerCase();
+    }
+    else if (type === 'upper') {
+        return str.toUpperCase();
+    }
+    else {
+        return str;
+    }
+};
+exports.normalize = normalize;
 // ========================================================================== //
 // api methods export
 // ========================================================================== //
@@ -85,6 +104,7 @@ const index = {
     returnOnlyNumbers: exports.returnOnlyNumbers,
     capitalize: exports.capitalize,
     generateToken: exports.generateToken,
-    returnPhoneMask: exports.returnPhoneMask
+    returnPhoneMask: exports.returnPhoneMask,
+    normalize: exports.normalize
 };
 exports.default = index;
