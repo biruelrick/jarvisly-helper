@@ -8,7 +8,7 @@
   "author": "Ricardo Biruel",
   "license": "MIT",
   "scripts": {
-    "push": "tsc && git add . && git commit -m '*** DEPLOY ***' && git push"
+    "tsc": "tsc && git add . && git commit -m '*** DEPLOY ***' && git push"
     "deploy": "npm publish"
   },
   "dependencies": {
