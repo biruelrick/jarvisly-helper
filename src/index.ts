@@ -1,4 +1,4 @@
-import { randomUUID } from 'crypto';
+import { v4 as uuidv4 } from 'uuid';
 import path from 'path';
 import capitalizePtBr from 'capitalize-pt-br';
 
@@ -38,10 +38,10 @@ export const returnOnlyNumbers = (str: string): string => str.replace(/\D/g, '')
 export const capitalize = (str: string): string => capitalizePtBr(str);
 
 // ************************************************************************** //
-// generaToken()
+// generateToken()
 // generate a random token using the node crypto core package
 // ************************************************************************** //
-export const generaToken = () => randomUUID();
+export const generateToken = () => uuidv4();
 
 // ************************************************************************** //
 // returnPhoneMask()
@@ -90,7 +90,7 @@ const index = {
   isObject: isObject,
   returnOnlyNumbers: returnOnlyNumbers,
   capitalize: capitalize,
-  generaToken: generaToken,
+  generateToken: generateToken,
   returnPhoneMask: returnPhoneMask
 };
 

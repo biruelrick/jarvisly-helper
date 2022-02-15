@@ -42,7 +42,7 @@ exports.returnOnlyNumbers = returnOnlyNumbers;
 const capitalize = (str) => (0, capitalize_pt_br_1.default)(str);
 exports.capitalize = capitalize;
 // ************************************************************************** //
-// generaToken()
+// generateToken()
 // generate a random token using the node crypto core package
 // ************************************************************************** //
 const generaToken = () => (0, crypto_1.randomUUID)();
