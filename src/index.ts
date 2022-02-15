@@ -81,6 +81,27 @@ export const returnPhoneMask = (str: string, countryCode: string = 'br'): string
   }
 };
 
+// ************************************************************************** //
+// normalize()
+// Normalize the text removing all accents and diacritics
+// ************************************************************************** //
+export const normalize = (str: string, type: 'lower' | 'upper' | undefined): string | undefined => {
+
+  if (!str) return;
+
+  str = str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  if (type === 'lower') {
+    return str.toLowerCase();
+
+  } else if (type === 'upper') {
+    return str.toUpperCase();
+
+  } else {
+    return str;
+  }
+};
+
 // ========================================================================== //
 // api methods export
 // ========================================================================== //
@@ -91,7 +112,8 @@ const index = {
   returnOnlyNumbers: returnOnlyNumbers,
   capitalize: capitalize,
   generateToken: generateToken,
-  returnPhoneMask: returnPhoneMask
+  returnPhoneMask: returnPhoneMask,
+  normalize: normalize
 };
 
 export default index;
